@@ -1,0 +1,37 @@
+label {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 1%;
+    display: block;
+    margin-left: 45%;
+    color: #b0623f;
+}
+
+body {
+    background-color: bisque; /* Light gray background color */
+}
+
+.table--labels th {
+    background-color: #b0623f;
+    color: white;
+    padding: 15px;
+}
+
+.book-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5%;
+}
+
+.book-list-container table td:nth-child(5), table td:nth-child(1) {
+    text-align: center;
+}
+
+.book-list-container table td:last-child {
+    text-align: center;
+}
+
+.book-list-container table td {
+    color: #673e29;
+    padding-top: 0.8%;
+}
