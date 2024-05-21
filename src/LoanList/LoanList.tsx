@@ -1,8 +1,7 @@
-import './BookList.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './LoanList.css';
 
-function BookList() {
+function LoanList() {
   const books = [
     {
       isbn: '123456789',
@@ -22,17 +21,19 @@ function BookList() {
     },
   ];
   return (
-    <div className="book-list-container">
-      <label>Book list</label>
+    <div className="loan-list-container">
+      <label>Loan list</label>
       <table>
-        <thead className="table--labels">
+        <thead className="loan-table--labels">
           <tr>
             <th>ISBN</th>
             <th>Title</th>
             <th>Author</th>
             <th>Publisher</th>
             <th>Year of publish</th>
-            <th>Available copies</th>
+            <th>Loan date</th>
+            <th>Return deadline</th>
+            <th>Date of return</th>
           </tr>
         </thead>
         <tbody className="list">
@@ -52,4 +53,4 @@ function BookList() {
   );
 }
 
-export default BookList;
+export default LoanList;

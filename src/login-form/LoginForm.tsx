@@ -3,13 +3,26 @@ import './LoginForm.css';
 import { Button, TextField } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom';
+import { ClientResponse, LibraryClient } from '../library-client';
+import { useApi } from '../ApiProvider';
+import { LoginResponseDto } from '../dto/login.dto';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const apiClient: LibraryClient = useApi();
   const onSubmit = useCallback(
     (values: { username: string; password: string }, formik: any) => {
-      console.log(values);
+      apiClient.login(values).then((response) => {
+        //console.log(response);
+        if (response.success) {
+          navigate('/home');
+        } else {
+          formik.setFieldError('username', 'Invalid username or password');
+        }
+      });
     },
-    [],
+    [apiClient, navigate],
   );
 
   const validationSchema = useMemo(
