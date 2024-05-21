@@ -2,17 +2,15 @@ label {
     font-size: 40px;
     font-weight: bold;
     margin-top: 1%;
-    display: block;
-    margin-left: 45%;
-    color: #b0623f;
+    color: #bb846b;
 }
 
 body {
-    background-color: bisque; /* Light gray background color */
+    background-color: bisque;
 }
 
 .table--labels th {
-    background-color: #b0623f;
+    background-color: #bb846b;
     color: white;
     padding: 15px;
 }
@@ -32,6 +30,6 @@ body {
 }
 
 .book-list-container table td {
-    color: #673e29;
+    color: #9a6a54;
     padding-top: 0.8%;
 }

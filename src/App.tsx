@@ -15,6 +15,8 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="/BookList" element={<BookList />} />
+            <Route path="/home" element={<MainPage />} />
+            <Route path="/LoanList" element={<LoanList />} />
           </Routes>
         </ApiProvider>
       </BrowserRouter>
