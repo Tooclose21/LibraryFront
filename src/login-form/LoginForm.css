@@ -1,8 +1,49 @@
-.login-form {
-    padding: 5rem;
-    gap: 2rem;
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.body-login {
+    background: linear-gradient(to right, #d7bd97, #9a6d5c);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+.body-login .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.body-login .login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-login .MuiTypography-root {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.body-login .MuiTextField-root {
+    margin-bottom: 1.5rem;
+}
+
+.body-login .MuiButton-containedPrimary {
+    background-color: #875640;
+    color: white;
+}
+
+.body-login .MuiButton-containedPrimary:hover {
+    background-color: #9a6d5c;
 }
