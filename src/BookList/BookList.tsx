@@ -1,45 +1,44 @@
 import './BookList.css';
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Book } from '../dto/book.dto';
+import { useTranslation } from 'react-i18next';
+import { useApi } from '../ApiProvider';
 
-function BookList() {
-  const books = [
-    {
-      isbn: '123456789',
-      title: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      publisher: 'Publisher A',
-      yearOfPublish: 1960,
-      availableCopies: 5,
+function BookList({ books }: { books: Book[] }) {
+  const { t, i18n } = useTranslation();
+  const Api = useApi();
+  const onLoan = useCallback(
+    (id: number | undefined) => {
+      Api.loan(id!)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
     },
-    {
-      isbn: '987654321',
-      title: '1984',
-      author: 'George Orwell',
-      publisher: 'Publisher B',
-      yearOfPublish: 1949,
-      availableCopies: 3,
-    },
-  ];
+    [Api],
+  );
+
+  useEffect(() => {
+    console.log(books);
+  }, []);
   return (
     <div className="book-list-container">
-      <label>Book list</label>
+      <label>{t('Book list')}</label>
       <table>
         <thead className="table--labels">
           <tr>
             <th>ISBN</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publisher</th>
-            <th>Year of publish</th>
-            <th>Available copies</th>
+            <th>{t('Title')}</th>
+            <th>{t('Author')}</th>
+            <th>{t('Publisher')}</th>
+            <th>{t('Year of publish')}</th>
+            <th>{t('Available copies')}</th>
           </tr>
         </thead>
         <tbody className="list">
           {books.map((book, index) => (
             <tr key={index}>
               <td>{book.isbn}</td>
-              <td>{book.title}</td>
+              <td onClick={() => onLoan(book.id)}>{book.title}</td>
               <td>{book.author}</td>
               <td>{book.publisher}</td>
               <td>{book.yearOfPublish}</td>

@@ -1,0 +1,22 @@
+.user--loans-page {
+    font-family: Arial, sans-serif;
+    padding: 2%;
+}
+
+.user--loans-header {
+    text-align: center;
+    margin-bottom: 2%;
+    font-size: 30px;
+    color: #9a6a54;
+}
+
+.user--loans-book-list {
+    margin-top: 2%;
+}
+
+.user--loans-book-list h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2%;
+}

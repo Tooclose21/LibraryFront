@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useMemo } from 'react';
+import i18n from '../i18n';
 import './LoginForm.css';
 import {
   Button,
@@ -7,17 +8,19 @@ import {
   Container,
   Paper,
   Box,
+  IconButton,
 } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useApi } from '../ApiProvider';
 import { LibraryClient } from '../library-client';
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const apiClient: LibraryClient = useApi();
-
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     // Add class to the body
     document.body.classList.add('body-login');
@@ -32,7 +35,8 @@ const LoginForm = () => {
     (values: { username: string; password: string }, formik: any) => {
       apiClient.login(values).then((response) => {
         if (response.success) {
-          navigate('/home');
+          console.log(response);
+          navigate('/home', { state: { books: response.data?.books } });
         } else {
           formik.setFieldError('username', 'Invalid username or password');
         }
@@ -52,13 +56,20 @@ const LoginForm = () => {
       }),
     [],
   );
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
 
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
-        <Box p={3}>
+        <Box p={3} position="relative">
+          <div>
+            <Button onClick={() => handleLanguageChange('eng')}>English</Button>
+            <Button onClick={() => handleLanguageChange('pl')}>Polski</Button>
+          </div>
           <Typography variant="h4" align="center" gutterBottom>
-            Log in to your library
+            {t('Log in to your library')}
           </Typography>
           <Formik
             initialValues={{ username: '', password: '' }}
@@ -76,7 +87,7 @@ const LoginForm = () => {
               >
                 <TextField
                   id="username"
-                  label="Username"
+                  label={t('Username')}
                   variant="outlined"
                   name="username"
                   fullWidth
@@ -88,7 +99,7 @@ const LoginForm = () => {
                 />
                 <TextField
                   id="password"
-                  label="Password"
+                  label={t('Password')}
                   variant="outlined"
                   type="password"
                   name="password"
@@ -107,7 +118,7 @@ const LoginForm = () => {
                     fullWidth
                     disabled={!(formik.isValid && formik.dirty)}
                   >
-                    Log-in
+                    {t('Log - in')}
                   </Button>
                 </Box>
               </form>
