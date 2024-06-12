@@ -7,11 +7,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { useApi } from '../ApiProvider';
 import { useTranslation } from 'react-i18next';
+import { Book } from '../dto/book.dto';
 
 function MainPage() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const location = useLocation();
-  const books = location.state.books;
+  const books: Book[] = location.state.books;
+  const [condition, setCondition] = useState('');
   const LoanList = '/LoanList';
   const api = useApi();
 
@@ -66,11 +68,23 @@ function MainPage() {
         </div>
       </header>
       <section className="search-bar">
-        <input type="text" placeholder={t('Search for books')} />
+        <input
+          value={condition}
+          onChange={(a) => setCondition(a.target.value)}
+          type="text"
+          placeholder={t('Search for books')}
+        />
         <button>{t('Search')}</button>
       </section>
       <section className="book-list">
-        <BookList books={books} />
+        <BookList
+          books={books.filter(
+            (it) =>
+              condition === '' ||
+              it.title?.toLowerCase().includes(condition.toLowerCase()) ||
+              it.author?.toLowerCase().includes(condition.toLowerCase()),
+          )}
+        />
       </section>
     </div>
   );
