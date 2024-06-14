@@ -31,5 +31,19 @@
   "Add user": "Add user",
   "Add New Book": "Add New Book",
   "Year of Publish": "Year of Publish",
-  "Available Copies": "Available Copies"
+  "Available Copies": "Available Copies",
+  "Delete": "Delete",
+  "Loan": "Loan",
+  "Return": "Return",
+  "Details": "Details",
+  "Cancel return": "Cancel return",
+  "Unauthorized": "Unauthorized",
+  "You do not have permission to enter this page": "You do not have permission to enter this page",
+  "Book deleted": "Book deleted",
+  "Message": "Message",
+  "Book loaned": "Book loaned",
+  "Book returned": "Book returned",
+  "Book added": "Book added",
+  "Add book failed": "Add book failed",
+  "User added": "User added"
 }

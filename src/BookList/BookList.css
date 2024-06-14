@@ -22,7 +22,7 @@ body{
     margin-top: 1.5%;
 }
 
-.book-list-container table td:nth-child(5), table td:nth-child(1) {
+.book-list-container table td:nth-child(6), table td:nth-child(1), table td:nth-child(7) {
     text-align: center;
 }
 
@@ -33,4 +33,22 @@ body{
 .book-list-container table td {
     color: #9a6a54;
     padding-top: 0.8%;
+}
+
+.loan-book-list-button{
+    padding: 1% 2%;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5cc9b;
+    color: #775131;
+    cursor: pointer;
+}
+
+.delete-book-list-button{
+    padding: 1% 2%;
+    border: none;
+    border-radius: 4px;
+    background-color: #d3bf9a;
+    color: #775131;
+    cursor: pointer;
 }

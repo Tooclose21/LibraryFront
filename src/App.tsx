@@ -12,6 +12,8 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import AddBook from './AddElemeents/AddBook';
 import AddUser from './AddElemeents/AddUser';
+import UserDetailsPage from './UserDetails/UserDetailsPage';
+import EditBook from './AddElemeents/EditBook';
 
 function App() {
   return (
@@ -23,11 +25,13 @@ function App() {
               <Route path="/" element={<LoginForm />} />
               {/*<Route path="/BookList" element={<BookList />} />*/}
               <Route path="/home" element={<MainPage />} />
-              <Route path="/LoanList" element={<LoanList loans={[]} />} />
+              {/*<Route path="/LoanList" element={<LoanList loans={[]} />} />*/}
               <Route path="/UserBookList" element={<UserBookList />} />
               <Route path="/ListOfUsers" element={<ListOfUsers />} />
               <Route path="/AddBook" element={<AddBook />} />
               <Route path="/AddUser" element={<AddUser />} />
+              <Route path="/UserDetails" element={<UserDetailsPage />} />
+              <Route path="/EditBook" element={<EditBook />} />
             </Routes>
           </ApiProvider>
         </I18nextProvider>

@@ -31,5 +31,19 @@
   "Add user": "Dodaj użytkownika",
   "Add New Book": "Dodaj nową książkę",
   "Year of Publish": "Rok wydania",
-  "Available Copies": "Dostępne kopie"
+  "Available Copies": "Dostępne kopie",
+  "Delete": "Usuń",
+  "Loan": "Wypożycz",
+  "Return": "Zwróć",
+  "Details": "Szczegóły",
+  "Cancel return": "Anuluj zwrot",
+  "Unauthorized": "Brak dostępu",
+  "You do not have permission to enter this page": "Nie masz pozwolenia na użycie tej funkcji",
+  "Book deleted": "Pozycja usunięta",
+  "Message": "Informacja",
+  "Book loaned": "Wypożyczono książkę",
+  "Book returned": "Zwrócono książkę",
+  "Book added": "Dodano książkę",
+  "Add book failed": "Nie udało się dodać książki",
+  "User added": "Dodano użytkownika"
 }
